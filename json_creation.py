@@ -27,7 +27,7 @@ id = 1
 answer_start = 1
 for question in d_train:
     diz_qa_json = {}
-    diz_qa_json["answer"] = [{"answer_start": answer_start, "text": d_train[question]}]
+    diz_qa_json["answers"] = [{"answer_start": answer_start, "text": d_train[question]}]
     diz_qa_json["id"] = id
     diz_qa_json["is_impossible"] = False
     diz_qa_json["question"] = question
@@ -40,7 +40,7 @@ id = 1
 answer_start = 1
 for question in d_test:
     diz_qa_json = {}
-    diz_qa_json["answer"] = [{"text": d_test[question], "answer_start": answer_start}]
+    diz_qa_json["answers"] = [{"text": d_test[question], "answer_start": answer_start}]
     diz_qa_json["id"] = id
     diz_qa_json["is_impossible"] = False
     diz_qa_json["question"] = question
