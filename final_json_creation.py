@@ -1,5 +1,4 @@
 import json
-
 from Dictionary_qa import d_test
 from Dictionary_qa import d_train
 from Dictionary_qa import diz_qa
@@ -39,7 +38,7 @@ for question in d_train:
     diz_qa_json["id"] = id
     diz_qa_json["is_impossible"] = False
     diz_qa_json["question"] = question
-    diz_qa_json["answer"] = [{"text": d_train[question], "answer_start": answer_start}]
+    diz_qa_json["answers"] = [{"text": d_train[question], "answer_start": answer_start}]
     id += 1
     answer_start += 1
     list_qa_json_train.append(diz_qa_json)
@@ -52,7 +51,7 @@ for question in d_test:
     diz_qa_json["id"] = id
     diz_qa_json["is_impossible"] = False
     diz_qa_json["question"] = question
-    diz_qa_json["answer"] = [{"text": d_test[question], "answer_start": answer_start}]
+    diz_qa_json["answers"] = [{"text": d_test[question], "answer_start": answer_start}]
     id += 1
     answer_start += 1
     list_qa_json_test.append(diz_qa_json)
@@ -72,5 +71,10 @@ if __name__ == '__main__':
     with open('test.json', 'w') as outfile:
         outfile.write(json_string_test)
 
+
+    questions_predict = [{ "question": "How can I look for a room?", "id": "1",}]
     prediction[0]["context"] = context_predict
-    print(prediction)
+    prediction[0]["qas"] = questions_predict
+    json_string_predict = json.dumps(prediction)
+    with open('predict.json', 'w') as outfile:
+        outfile.write(json_string_predict)
