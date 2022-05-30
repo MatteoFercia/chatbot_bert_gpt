@@ -1,6 +1,6 @@
 from create_input_file import input_file
 import openai
-openai.api_key = "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"
+openai.api_key = "API"
 
 response = openai.Answer.create(
  search_model="ada",
@@ -16,3 +16,5 @@ response = openai.Answer.create(
 
 
 if __name__ == '__main__':
+
+ print(response)
