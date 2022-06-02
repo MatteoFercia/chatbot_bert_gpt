@@ -2,8 +2,6 @@ import csv
 import openai
 openai.api_key = "API"
 
-diz_qa_gpt_3 = {}
-
 class Responder:
  def __init__(self):
   pass
@@ -19,7 +17,7 @@ class Responder:
               "78 years."]],
    max_tokens=50,
    stop=["\n", "<|endoftext|>"])
-  with open('results_qa', 'a') as f:
+  with open('results_qa_gpt-3', 'a') as f:
    writer = csv.writer(f)
    writer.writerow([question, response["answers"]])
   return response
@@ -27,4 +25,4 @@ class Responder:
 if __name__ == '__main__':
 
  qa = Responder()
- qa.answer_to("which are the costs to face to get a room?")
+ qa.answer_to("How is the contract?")
